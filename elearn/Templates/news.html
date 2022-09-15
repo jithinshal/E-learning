@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#clock{
+  font-size:2.5rem;
+ 
+}
+</style>
+</head>
+<body>
+ 
+<div align='center' id="clock"></div>
+ 
+
+<table>
+  <tr>
+    <th>latest educational news</th>
+    <th> Read more<th>
+ </tr>
+ {% for d,m in e %}
+
+  <tr>
+   <td >{{d}}</td>
+   <td><a  href="{{m}}">Read more</a></td>
+  </tr>
+ {% endfor %}
+
+</table>
+
+<div align="center">
+  <button type="submit" onclick="location.href='{% url 'home' %}'" name='mybtn2'>Back</button>
+</div>
+
+
+
+<script src="{% static 'time.js' %}"></script>
+</body>
+</html>
+

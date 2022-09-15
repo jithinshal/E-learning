@@ -1,0 +1,50 @@
+body{
+    background-color: aquamarine;
+}
+
+
+/* Add padding to containers */
+.container {
+  padding: 75px;
+  align-items:center ;
+
+  padding: 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size:20px;
+ 
+  
+
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email]{
+  width: 29%;
+  padding: 8px 8px;
+  margin: 10px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  text-align: center;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+  text-align: center;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+
+
+/* Add a blue text color to links */
+
+button[type=submit]{
+    background-color: black;
+    color: #ddd;
+}

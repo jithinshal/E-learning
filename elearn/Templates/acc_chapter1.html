@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select chapter</title>
+    <style>
+        body{
+            background-color:rgb(42, 161, 212);
+            
+            }
+            button{
+                position:relative;
+                background-color:black;
+                color:white;
+               
+              }
+              button:hover{
+                background-color:red;
+              }
+              input[type=submit], input[type=reset]{
+                position: relative;
+                display: inline-block;
+                padding: 8px 8px;
+                background-color: black;
+                color: beige;
+            }
+            input[type=submit]:hover, input[type=reset]:hover{
+                color: brown;
+            }
+    </style>
+
+</head>
+<body>
+    <div  class="cen" align="center">
+        <form method="post" action="{% url 'acc_chapter1' %}">
+            {% csrf_token %}
+            <br><br>
+             <select name="cha">
+                    <option value="Nil" selected>Select chapter</option>
+                    {% for i in fd %}
+                        <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+             </select><br><br>
+            <input type="submit" name="sb" value="Next">
+            <input type="reset" name="sb1" value="Cancel">
+        </form>
+        <div>
+             <button type="submit" onclick="location.href='{% url 'student_home' %}'">Home</button>
+        </div>
+    </div>
+</body>
+</html>

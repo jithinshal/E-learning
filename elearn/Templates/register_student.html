@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Register student</title>
+    <link rel="stylesheet" href="{% static 'reg_admin.css' %}">
+  </head>
+
+  <body>
+<div class="container">
+    <form class="signup-form" action="{% url 'student_reg' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div style ="color:green;" align="center">
+            {% if messages %}
+                {% for msg in messages %}
+                    {{ msg }}
+                {% endfor %}
+            {% endif %}
+        </div>    
+         <!-- form header -->
+         <div class="form-header">
+            <h1>Register student Account</h1>
+
+         
+         </div>
+
+         <!-- form body -->
+         <div class="form-body">
+             <!-- Firstname and Lastname -->
+                <div class="horizontal-group">
+                    <div class="form-group left">
+                        <label for="firstname" class="label-title">First name *</label>
+                        <input type="text" name="first_name" class="form-input" placeholder="enter your first name" required="required" />
+                    </div>
+                    <div class="form-group right">
+                        <label for="lastname" class="label-title">Last name *</label>
+                        <input type="text" name="last_name" class="form-input" placeholder="enter your last name"  required="required"/>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="label-title">Email*</label>
+                    <input type="email" name="email" class="form-input" placeholder="enter your email" required="required">
+                </div>
+                <div class="form-group right">
+                    <label for="" class="label-title">Username *</label>
+                    <input type="text" name="user_name" class="form-input" placeholder="enter your Username" required="required" />
+                </div>
+                
+                <!-- Password and confirm password -->
+                <div class="horizontal-group">
+                
+                    <div class="form-group left">
+                    <label for="password" class="label-title">Password *</label>
+                    <input type="password" name="psw" class="form-input" placeholder="enter your password" required="required">
+                    </div>
+                
+                    <div class="form-group right">
+                    <label for="confirm-password" class="label-title">Confirm Password *</label>
+                    <input type="password" class="form-input" name="psw2" placeholder="enter your password again" required="required">
+                    </div>
+                
+                </div>
+                 <!-- Profile picture -->
+                <div class="horizontal-group">
+
+                    <div class="form-group left" >
+                    <label for="choose-file" class="label-title">Upload Profile Picture *</label>
+                    <input type="file" name="photo" size="80" required="required">
+                    </div>
+                    
+                </div>
+         </div>
+    
+         <!-- form footer -->
+         <div class="form-footer">
+            <span>* required</span>
+             <button type="submit" class="btn">Create</button>
+             <button type="reset" class="btn">Reset</button>
+             <button type="submit" class="btn" onclick="location.href='{% url 'home' %}'" name='mybtn2'>Back</button>
+         </div>
+    </form>
+
+</div>
+</body>
+</html>

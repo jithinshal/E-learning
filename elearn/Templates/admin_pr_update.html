@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'update_admin.css' %}">
+
+
+</head>
+<body >
+<div align="center">
+<h1 style="color:blue;">Admin profile</h1>
+<div style="color:blue;">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+<table>
+    <tr>
+        <th >First Name</th>
+        <th >Last Name</th>
+        <th >Email</th>
+        <th >Password</th>
+        <th >Registration date</th>
+    </tr>
+    {% for i in gtt %}
+    <tr>
+                <td >{{i.First_name}}</td>
+                <td >{{i.Last_name}}</td>
+                <td >{{i.Email}}</td>
+                <td >{{i.Password}}</td>
+                <td >{{i.Registration_date}}</td>
+            
+    </tr>
+   
+</table>
+<div>
+    <button onclick="window.location.href = '{% url 'admin_resign' i.id %}';">Resign from administration</button>
+               
+    <button onclick="window.location.href = '{% url 'edit_pr_admin'  %}';">Edit my profile</button>
+                
+    <button onclick="window.location.href = '{% url 'admin_home' %}';">Back</button>
+                
+
+  
+
+</div>
+{% endfor %}
+</body>
+</html>

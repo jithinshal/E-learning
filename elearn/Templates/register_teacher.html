@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher registration table</title>
+    <link rel="stylesheet" href="{% static 'reg_tr.css' %}">
+</head>
+
+<body>
+    <section id="registration-page">
+        <form class="signup-form" action="{% url 'teacher_reg' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div style ="color:green;" align="center">
+                {% if messages %}
+                    {% for msg in messages %}
+                        {{ msg }}
+                    {% endfor %}
+                {% endif %}
+            </div>    
+
+            <!-- FORM HEADER -->
+            <div class="form-header">
+                <h1>Create Account</h1>
+            </div>
+            <!-- FORM BODY -->
+            <div class="form-body">
+                <!-- First name & Last name -->
+                <div class="row">
+                    <div class="input-group">
+                        <label>First name </label>
+                        <input type="text" name="first_name" placholder="Enter your first name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Last name</label>
+                        <input type="text" name="last_name" placholder="Enter your last name" required>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="row">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" name="user_name" placholder="Enter your Username" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email </label>
+                        <input type="email" name="email" placholder="Enter your email address" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Password </label>
+                        <input type="password" name="psw" placholder="Enter your your password" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Confirm Password</label>
+                        <input type="password" name="psw2" placholder="Enter your password again" required>
+                    </div>
+                </div>
+              
+                <!-- Upload Profile Picure & Age -->
+                <div class="row">
+                    <div class="input-group">
+                        <label>Upload Profile Picture</label>
+                        <input type="file" name="photo" required>
+                    </div>
+                    <div class="input-group">
+                        <label>qualification</label>
+                        <input type="text" name="qual" required>
+                    </div>
+                </div>
+
+                <!--  Bio   -->
+                <div class="row">
+                    <div class="input-group">
+                        <label for="">Bio</label>
+                        <textarea rows="9" cols="50"  placeholder="Brief summary of your educational background, work experience, skill sets, hobbies, etc." name="intro" required> </textarea>
+                    </div>
+                </div>
+            </div>
+            <!--  FORM FOOTER   -->
+            <div class="form-footer">
+                <button type="submit" class="btn">Create</button>
+                <button type="reset" class="btn2">Reset</button>
+                <button type="submit" class="btn" onclick="location.href='{% url 'home' %}'" name='mybtn2'>Back</button>
+
+            </div>
+        </form>
+    </section>
+
+</body>
+
+</html>

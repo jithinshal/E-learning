@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+    background: #ccc;
+}
+.collapse{
+    position: relative;
+    justify-content: center;
+    padding: 10px;
+    
+
+   
+} 
+.navbar li a{
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    display: block;
+}
+.jumbotron{
+    position:absolute;
+    display: flex;
+    text-align: center;
+}

@@ -1,0 +1,66 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD CHAPTER</title>
+    <link rel="stylesheet" type="text/css" href="">
+     <style>
+    body{
+        background-color:rgb(42, 161, 212);
+        margin-top:50px;
+     }
+     input[type=submit]{
+        position:relative;
+        background-color:black;
+        color:white;
+        top:24px;
+     }
+     input[type=submit]:hover{
+        background-color:red;
+     }
+     select{
+        position:relative;
+       top:15px;
+     }
+      button{
+        position:relative;
+        background-color:black;
+        color:white;
+        top :30px;
+      }
+      button:hover{
+        background-color:red;
+      }
+    </style>
+</head>
+<body >
+<div align="center">
+<form method="post" action="{% url 'add_chapter1' %}">
+    {% csrf_token %}
+    <h3>SELECT SUBJECT</h3>
+    <table>
+        <tr>
+            <td>
+                <select name="subj">
+                    <option value="Nil" selected>Select subject</option><br><br>
+                    {% for i in kk %}
+                        <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>
+            </td>
+        </tr>
+         <tr>
+            <td>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" name="Next" value="Submit">
+            </td>
+        </tr>
+    </table>
+</form>
+<button type="submit" onclick="location.href='{% url 'teacher_home' %}'">Home</button>
+</div>
+</body>
+</html>

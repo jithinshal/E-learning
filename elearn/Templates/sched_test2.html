@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule test</title>
+    <style>
+        body{
+            background-color:rgb(42, 161, 212);
+            
+            }
+            button{
+                position:relative;
+                background-color:black;
+                color:white;
+                top :30px;
+              }
+              button:hover{
+                background-color:red;
+              }
+              input[type=submit], input[type=reset]{
+                position: relative;
+                display: inline-block;
+                padding: 8px 8px;
+                background-color: black;
+                color: beige;
+            }
+    </style>
+
+</head>
+
+<body >
+    <div  class="cen" align="center">
+        <form method="post" action="{% url 'sched_test3' %}">
+            {% csrf_token %}
+            <br><br>
+            Question:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name="ques" cols="50" rows="4"></textarea><br><br>
+                Option 1:&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name="op1" cols="50" rows="4"></textarea><br><br>
+                Option 2:&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name="op2" cols="50" rows="4"></textarea><br><br>
+                Option 3:&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name="op3" cols="50" rows="4"></textarea><br><br>
+            Correct answer:&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name="ans" cols="50" rows="4"></textarea><br><br>
+                <button type="submit">Add next question/options</button><br><br>
+
+        </form>
+        <div>
+             <button type="submit" onclick="location.href='{% url 'teacher_home' %}'">Home</button>
+        </div>
+    </div>
+</body>
+</html>

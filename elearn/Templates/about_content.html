@@ -1,0 +1,37 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <style>
+        body{
+            background-color:rgb(42, 161, 212);
+            }
+            button{
+                position:relative;
+                background-color:black;
+                color:white;
+                top :30px;
+              }
+              button:hover{
+                background-color:red;
+              }
+    </style>
+</head>
+
+<body >
+    <div align="center">
+    <div style="display: block; width: 600px;">
+    <form method="post" action="{% url 'about_ad_web' %}">
+        {% csrf_token %}
+<br><br>
+    ENTER CONTENT: <br><br><textarea rows="20" cols="100" name="abbt">{{amm.About_website}}</textarea><br><br>
+        <input type="hidden" name="idd" value="{{amm.id}}">
+    <button type="submit">Add</button><br><br>
+    </form>
+        <button type="submit" onclick="location.href='{% url 'admin_home' %}'" name='mybtn2'>Back</button>
+</div>
+</div>
+</body>
+</html>
+

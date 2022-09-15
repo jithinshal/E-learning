@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'fgt.css' %}">
+    </head>
+
+<body>
+<div class="fgt1" align="center">
+<h1>Reset your password</h1>
+
+<form action="{% url 'forgot_password' %}" method="post">
+    {% csrf_token %}
+  <div class="cont">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <input type="submit">
+  <input type="reset" name="cancel" value="reset">
+  </div>
+</form>
+<div class="btn">
+    <button type="submit" class="registerbtn" onclick="location.href='{% url 'home' %}'">Back</button>
+</div>
+</div>
+</body>
+</html>
